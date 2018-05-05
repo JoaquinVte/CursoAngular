@@ -1,0 +1,27 @@
+<div class="card">
+  <div class="card-header bg-primary text-white">
+    {{title}}
+  </div>
+  <div class="card-block">
+    <div class="table-responsive" *ngIf="products && products.length">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>{{headers.desc}}</th>
+            <th>{{headers.price}}</th>
+            <th>{{headers.avail}}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let product of products; let i = index; let isEven = even">
+            <td [ngClass]="{'even': isEven}">{{'Index: ' + i}}</td>
+            <td>{{product.desc}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.avail}}</td>
+          </tr>
+          <!-- Aquí van los productos. Por ahora se queda vacío -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
