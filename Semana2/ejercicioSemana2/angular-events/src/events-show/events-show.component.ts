@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IEvent } from '../../interfaces/i-event';
+import { IEvent } from '../interfaces/i-event';
 
 
 @Component({
@@ -8,6 +8,8 @@ import { IEvent } from '../../interfaces/i-event';
   styleUrls: ['./events-show.component.css']
 })
 export class EventsShowComponent implements OnInit {
+
+  search: string ='';
 
   eventos: IEvent[] = [{
     title: 'Primer evento',

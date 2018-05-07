@@ -8,13 +8,12 @@
     </li>
   </ul>
   <form class="form-inline">
-    <!-- <input class="form-control mr-sm-2" type="text" [(ngModel)]="search" name="search" placeholder="Search" aria-label="Search"> -->
+    <input class="form-control mr-sm-2" type="text" [(ngModel)]="search" name="search" placeholder="Search" aria-label="Search">
   </form>
 </nav>
-
 <div class="row">
   <!-- Aquí listaremos los eventos -->
-  <div class="col-6 mt-4" *ngFor='let evento of eventos'>
+  <div class="col-6 mt-4" *ngFor="let evento of eventos | eventFilter:search">
     <!-- Repetir esto por cada evento -->
     <div class="card">
       <img class="card-img-top" [src]="evento.image">
