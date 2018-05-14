@@ -15,7 +15,7 @@ export class EventsShowComponent implements OnInit {
     description: '',
     image: '',
     price: 0,
-    date: ''  
+    date: ''
   };
 
   search: string = '';
@@ -33,7 +33,7 @@ export class EventsShowComponent implements OnInit {
     date: new Date('2018-05-04').toLocaleDateString(),
     description: 'Descripción del segundo evento',
     price: 2
-  }];
+  }]; '2018-05-05'
 
 
 
@@ -42,12 +42,34 @@ export class EventsShowComponent implements OnInit {
   ngOnInit() {
   }
 
-  orderDate():void {
+  orderDate(): void {
     this.eventos.sort((e1, e2) => new Date(e1.date).getTime() - new Date(e2.date).getTime());
   };
 
-  orderPrice():void {
-    this.eventos.sort((e1,e2)=> e1.price - e2.price);
+  orderPrice(): void {
+    this.eventos.sort((e1, e2) => e1.price - e2.price);
+  }
+  addEvent(): void {
+    this.newEvent.date = new Date(this.newEvent.date).toLocaleDateString()
+    this.eventos.push(JSON.parse(JSON.stringify(this.newEvent)));
+
+    this.newEvent = {
+      title: '',
+      description: '',
+      image: '',
+      price: 0,
+      date: ''
+    };
+
+  }
+
+  changeImage(fileInput: HTMLInputElement) { 
+    if (!fileInput.files || fileInput.files.length === 0) { 
+      return; 
+    } 
+    const reader: FileReader = new FileReader(); 
+    reader.readAsDataURL(fileInput.files[0]); 
+    reader.addEventListener('loadend', e => { this.newEvent.image = reader.result; }); 
   }
 
 }
