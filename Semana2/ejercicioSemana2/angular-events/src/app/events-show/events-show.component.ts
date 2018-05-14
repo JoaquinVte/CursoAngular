@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IEvent } from '../interfaces/i-event';
+import { EventFilterPipe } from '../pipes/event-filter.pipe';
 
 
 @Component({
@@ -9,7 +10,7 @@ import { IEvent } from '../interfaces/i-event';
 })
 export class EventsShowComponent implements OnInit {
 
-  search: string ='';
+  search: string = '';
 
   eventos: IEvent[] = [{
     title: 'Primer evento',
